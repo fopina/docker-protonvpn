@@ -1,4 +1,4 @@
-# gotlsproxy on VPN
+# protonvpn docker with tinyproxy
 
 ## Usage
 
