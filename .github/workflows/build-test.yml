@@ -1,0 +1,19 @@
+name: 🔨 Build Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    name: Test Builds
+    runs-on: ubuntu-latest
+    steps:
+      - name: build image
+        uses: docker/build-push-action@v5
+        with:
+          push: false
+          platforms: linux/amd64,linux/arm64
