@@ -9,6 +9,7 @@ ENV VPNCC="US"
 ENV PYTHONUNBUFFERED=1
 # as per https://tinyproxy.github.io/: Critical, Error, Warning, Notice, Connect, Info
 ENV TINYPROXY_LOG_LEVEL="Info"
+ENV TINYPROXY_MAX_CLIENTS=100
 
 COPY s6 /etc/s6
 COPY tinyproxy.conf.tmpl /etc/tinyproxy/tinyproxy.conf.tmpl
