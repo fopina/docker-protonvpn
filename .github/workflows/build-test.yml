@@ -14,6 +14,3 @@ jobs:
     steps:
       - name: build image
         uses: docker/build-push-action@v5
-        with:
-          push: false
-          platforms: linux/amd64,linux/arm64
