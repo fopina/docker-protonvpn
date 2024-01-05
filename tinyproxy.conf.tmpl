@@ -1,0 +1,17 @@
+User nobody
+Group nobody
+
+Port 8888
+
+Timeout 600
+
+# StatHost "tinyproxy.stats"
+StatFile "/usr/share/tinyproxy/stats.html"
+
+LogLevel $TINYPROXY_LOG_LEVEL
+
+MaxClients 100
+
+Allow 0.0.0.0/0
+
+DisableViaHeader Yes

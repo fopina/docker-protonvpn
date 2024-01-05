@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -euo pipefail
+
+cat /etc/tinyproxy/tinyproxy.conf.tmpl | envsubst > /etc/tinyproxy/tinyproxy.conf
+exec tinyproxy -d

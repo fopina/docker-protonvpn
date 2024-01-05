@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# stop container
+s6-svscanctl -t /etc/s6
