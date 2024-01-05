@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euo pipefail
+
+LOGIN_FILE="/login.conf"
+CFG_TMPL="/pvpn-cli.cfg.tmpl"
+CFG_DIR="/root/.pvpn-cli/"
+CFG_FILE="${CFG_DIR}pvpn-cli.cfg"
+AUTH_FILE="${CFG_DIR}pvpnpass"
+
+USERNAME=$(cat $LOGIN_FILE | head -n1)
+
+mkdir -p $CFG_DIR
+cat $CFG_TMPL | envsubst > $CFG_FILE
+cp $LOGIN_FILE $AUTH_FILE
+
+protonvpn c --cc $VPNCC
+sleep 1
+
+OPENVPNPID=$(pgrep -x openvpn)
+echo OpenVPN PID: $OPENVPNPID
+
+until ! kill -0 "$OPENVPNPID"; do sleep 1; done
