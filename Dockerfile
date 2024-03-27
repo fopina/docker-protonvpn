@@ -3,7 +3,10 @@ FROM python:3.10-alpine
 RUN apk add --no-cache openvpn tinyproxy bash s6 envsubst
 
 RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install protonvpn-cli==2.2.11
+    pip install https://github.com/Rafficer/linux-cli-community/archive/refs/tags/v2.2.12.tar.gz
+
+# RUN --mount=type=cache,target=/root/.cache/pip \
+#     pip install protonvpn-cli==2.2.12
 
 ENV VPNCC="US"
 ENV PYTHONUNBUFFERED=1
