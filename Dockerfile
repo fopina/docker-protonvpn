@@ -1,6 +1,6 @@
 FROM python:3.10-alpine
 
-RUN apk add --no-cache openvpn tinyproxy bash s6 envsubst
+RUN apk add --no-cache openvpn tinyproxy bash s6 envsubst iptables
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install https://github.com/Rafficer/linux-cli-community/archive/refs/tags/v2.2.12.tar.gz
